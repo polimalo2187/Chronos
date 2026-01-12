@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulacro Bot Web</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: url('app/static/images/background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+    }
+
+    button {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 14px;
+        min-width: 80px;
+    }
+
+    /* Registro/Login arriba centro */
+    #top-center {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+
+    /* Botones laterales */
+    .left-buttons, .right-buttons {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .left-buttons { left: 10px; }
+    .right-buttons { right: 10px; }
+
+    /* Alturas: arriba, medio, abajo */
+    #top-buttons { top: 60px; }
+    #middle-buttons { top: 45%; transform: translateY(-50%); }
+    #bottom-buttons { bottom: 60px; }
+
+    /* Colores de los botones */
+    .btn-signal { background-color: #1abc9c; }      /* Verde agua */
+    .btn-myaccount { background-color: #3498db; }   /* Azul */
+    .btn-plans { background-color: #9b59b6; }       /* Morado */
+    .btn-referrals { background-color: #e67e22; }   /* Naranja */
+    .btn-support { background-color: #e74c3c; }     /* Rojo */
+    .btn-admin { background-color: #f1c40f; color: black; } /* Amarillo */
+</style>
+</head>
+<body>
+
+<!-- Registro/Login arriba centro -->
+<div id="top-center">
+    <button onclick="alert('Registro');">Registro</button>
+    <button onclick="alert('Login');">Login</button>
+</div>
+
+<!-- Botones principales laterales -->
+<div id="top-buttons" class="left-buttons">
+    <button class="btn-signal" onclick="alert('Señales');">Señales</button>
+    <button class="btn-myaccount" onclick="alert('Mi cuenta');">Mi cuenta</button>
+</div>
+<div id="top-buttons" class="right-buttons">
+    <button class="btn-plans" onclick="alert('Planes');">Planes</button>
+    <button class="btn-referrals" onclick="alert('Referidos');">Referidos</button>
+</div>
+
+<div id="middle-buttons" class="left-buttons">
+    <button class="btn-support" onclick="alert('Soporte');">Soporte</button>
+</div>
+<div id="middle-buttons" class="right-buttons">
+    <button class="btn-signal" onclick="alert('Info de señal');">Info Señal</button>
+</div>
+
+<div id="bottom-buttons" class="left-buttons">
+    <button class="btn-admin" onclick="alert('Usuarios');">Info Usuarios</button>
+</div>
+<div id="bottom-buttons" class="right-buttons">
+    <button class="btn-admin" onclick="alert('Eliminar usuario');">Eliminar Usuario</button>
+</div>
+
+</body>
+</html>
