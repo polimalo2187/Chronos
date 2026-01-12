@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Simulacro</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button {
+    width: 120px;
+    height: 50px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    transition: transform 0.2s;
+    text-align: center;
+  }
+
+  .button:hover {
+    transform: scale(1.1);
+  }
+
+  /* Colores por tipo de botón */
+  .btn-register { background-color: #28a745; }       /* Verde */
+  .btn-login { background-color: #007bff; }          /* Azul */
+  .btn-signal { background-color: #28a745; }         /* Verde */
+  .btn-signal-info { background-color: #17a2b8; }    /* Cyan */
+  .btn-plans { background-color: #ffc107; color: #000; } /* Amarillo */
+  .btn-account { background-color: #6f42c1; }        /* Morado */
+  .btn-referrals { background-color: #fd7e14; }      /* Naranja */
+  .btn-support { background-color: #dc3545; }        /* Rojo */
+  .btn-admin { background-color: #343a40; }          /* Gris oscuro */
+
+  /* Distribución lateral */
+  .top-left { top: 120px; left: 20px; }
+  .middle-left { top: 50%; left: 20px; transform: translateY(-50%); }
+  .bottom-left { bottom: 20px; left: 20px; }
+
+  .top-right { top: 120px; right: 20px; }
+  .middle-right { top: 50%; right: 20px; transform: translateY(-50%); }
+  .bottom-right { bottom: 20px; right: 20px; }
+
+  /* Registro y Login arriba centro */
+  .top-center {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+  }
+
+  /* Panel Admin abajo centro */
+  .admin-panel {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+  }
+
+  .admin-panel .button { width: 150px; height: 50px; }
+</style>
+</head>
+<body>
+
+<!-- Registro y Login -->
+<div class="top-center">
+  <button class="button btn-register">📝 Registro</button>
+  <button class="button btn-login">🔑 Login</button>
+</div>
+
+<!-- Botones Usuarios -->
+<button class="button btn-signal top-left">📈 Señales</button>
+<button class="button btn-signal-info top-right">ℹ️ Info Señal</button>
+<button class="button btn-plans middle-left">💼 Planes</button>
+<button class="button btn-account middle-right">👤 Mi Cuenta</button>
+<button class="button btn-referrals bottom-left">👥 Referidos</button>
+<button class="button btn-support bottom-right">📩 Soporte</button>
+
+<!-- Panel Admin -->
+<div class="admin-panel">
+  <button class="button btn-admin">🔍 Info Usuarios</button>
+  <button class="button btn-admin">❌ Eliminar Usuario</button>
+</div>
+
+</body>
+</html>
