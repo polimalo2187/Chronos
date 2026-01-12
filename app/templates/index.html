@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador Bot Web</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: url('fondo.jpg') no-repeat center center fixed; /* Imagen de fondo */
+    background-size: cover;
+  }
+
+  /* Marco tipo teléfono */
+  .phone-frame {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    margin: 20px auto;
+    border: 16px solid #333;
+    border-radius: 36px;
+    background: rgba(255,255,255,0.0); /* Transparente para ver fondo */
+    overflow: hidden;
+  }
+
+  /* Botones comunes */
+  .btn {
+    position: absolute;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Registro/Login arriba */
+  .btn-register { top: 10px; left: 60px; background-color: #4CAF50; }
+  .btn-login    { top: 10px; right: 60px; background-color: #2196F3; }
+
+  /* Botones usuario - laterales */
+  .btn-user-1 { top: 80px; left: 5px; background-color: #FF5722; }  /* arriba izquierda */
+  .btn-user-2 { top: 80px; right: 5px; background-color: #FF9800; } /* arriba derecha */
+  .btn-user-3 { top: 260px; left: 5px; background-color: #9C27B0; } /* medio izquierda */
+  .btn-user-4 { top: 260px; right: 5px; background-color: #673AB7; }/* medio derecha */
+  .btn-user-5 { bottom: 80px; left: 5px; background-color: #00BCD4; }/* abajo izquierda */
+  .btn-user-6 { bottom: 80px; right: 5px; background-color: #009688; }/* abajo derecha */
+
+  /* Botones admin (ocultos por defecto) */
+  .btn-admin {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f44336;
+    display: none; /* visible solo si es admin */
+  }
+
+  /* Iconos de ejemplo */
+  .btn i {
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="phone-frame">
+
+  <!-- Registro/Login arriba -->
+  <button class="btn btn-register"><i>📝</i>Registro</button>
+  <button class="btn btn-login"><i>🔑</i>Login</button>
+
+  <!-- Botones usuarios -->
+  <button class="btn btn-user-1"><i>📊</i>Señales</button>
+  <button class="btn btn-user-2"><i>💼</i>Planes</button>
+  <button class="btn btn-user-3"><i>👤</i>Mi Cuenta</button>
+  <button class="btn btn-user-4"><i>👥</i>Referidos</button>
+  <button class="btn btn-user-5"><i>❓</i>Soporte</button>
+  <button class="btn btn-user-6"><i>ℹ️</i>Info Señal</button>
+
+  <!-- Botón admin -->
+  <button class="btn btn-admin" id="adminButton"><i>⚙️</i>Admin</button>
+
+</div>
+
+<script>
+  // Simulación: mostrar botón admin si el usuario es admin
+  const isAdmin = true; // Cambiar a false para usuario normal
+  if (isAdmin) {
+    document.getElementById("adminButton").style.display = "flex";
+  }
+</script>
+
+</body>
+</html>
