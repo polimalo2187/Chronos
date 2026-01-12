@@ -1,0 +1,67 @@
+/* =====================================================
+   RESET BÁSICO
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* =====================================================
+   FONDO PRINCIPAL DE LA WEB
+   ===================================================== */
+
+body {
+    background-image: url("/static/images/background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* MUY IMPORTANTE:
+       ❌ NO overflow:hidden
+       porque eso OCULTA botones posicionados */
+}
+
+/* =====================================================
+   CONTENEDOR GENERAL (SI EXISTE)
+   ===================================================== */
+
+/* 
+   Si tienes un container principal,
+   NO le pongas fondo blanco ni overflow oculto
+*/
+.container,
+.main,
+.wrapper,
+.app {
+    background: transparent;
+}
+
+/* =====================================================
+   BOTONES
+   ===================================================== */
+/*
+NO SE TOCAN.
+NO SE MUEVEN.
+NO SE ESTILAN AQUÍ.
+
+Este archivo NO define botones a propósito.
+Tus botones ya están bien.
+*/
+
+/* =====================================================
+   COMPATIBILIDAD MÓVIL
+   ===================================================== */
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
