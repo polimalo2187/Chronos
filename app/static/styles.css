@@ -1,1 +1,45 @@
+/* ======================================================
+   RESET BÁSICO
+====================================================== */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    min-height: 100%; /* Permite que el body sea más alto si es necesario */
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* 🔹 Permite scroll vertical */
+}
 
+/* ======================================================
+   FONDO PRINCIPAL DE LA WEB
+====================================================== */
+body {
+    background-image: url("/static/images/background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Mantiene la imagen fija de fondo */
+}
+
+/* ======================================================
+   CONTENEDOR GENERAL (SI EXISTE)
+====================================================== */
+.container, .main, .wrapper, .app {
+    background: transparent; /* 🔹 Nada de fondo blanco */
+}
+
+/* ======================================================
+   BOTONES
+====================================================== */
+/* 🔹 NO SE TOCAN. NO SE MUEVEN. Este archivo NO define botones a propósito. Tus botones se quedan exactamente donde están */
+
+/* ======================================================
+   COMPATIBILIDAD MÓVIL
+====================================================== */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Mejor soporte para móviles */
+    }
+}
