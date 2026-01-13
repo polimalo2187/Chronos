@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Web de Señales</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-image: url("/static/images/background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Botones comunes */
+    .btn {
+      position: absolute;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      min-width: 100px;
+      text-align: center;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    /* Colores por tipo */
+    .btn-register { background-color: #4CAF50; }   /* verde */
+    .btn-login { background-color: #2196F3; }      /* azul */
+    .btn-signal { background-color: #FF5722; }     /* naranja */
+    .btn-info { background-color: #9C27B0; }       /* morado */
+    .btn-referral { background-color: #FFC107; }   /* amarillo */
+    .btn-account { background-color: #00BCD4; }    /* cyan */
+    .btn-plans { background-color: #E91E63; }      /* rosa */
+    .btn-support { background-color: #795548; }    /* marrón */
+    .btn-admin { background-color: #000000; }      /* negro */
+
+    /* Posiciones exactas según tu descripción */
+    /* Arriba centro: registro y login con separación correcta */
+    #btn-register { top: 20px; left: 37%; } /* desplazado a la izquierda */
+    #btn-login { top: 20px; left: 55%; }
+
+    /* Laterales superiores */
+    #btn-signal { top: 80px; left: 5%; }
+    #btn-info { top: 80px; right: 5%; }
+
+    /* Laterales medios */
+    #btn-referral { top: 50%; left: 5%; transform: translateY(-50%); }
+    #btn-account { top: 50%; right: 5%; transform: translateY(-50%); }
+
+    /* Inferior */
+    #btn-plans { bottom: 80px; left: 5%; }
+    #btn-support { bottom: 80px; right: 5%; }
+
+    /* Panel admin: abajo centro, solo admins */
+    #btn-admin { bottom: 20px; left: 50%; transform: translateX(-50%); }
+  </style>
+</head>
+<body>
+
+  <!-- Botones -->
+  <button class="btn btn-register" id="btn-register">Registro</button>
+  <button class="btn btn-login" id="btn-login">Login</button>
+  <button class="btn btn-signal" id="btn-signal">Señal</button>
+  <button class="btn btn-info" id="btn-info">Info Señal</button>
+  <button class="btn btn-referral" id="btn-referral">Referido</button>
+  <button class="btn btn-account" id="btn-account">Mi Cuenta</button>
+  <button class="btn btn-plans" id="btn-plans">Planes</button>
+  <button class="btn btn-support" id="btn-support">Soporte</button>
+  <button class="btn btn-admin" id="btn-admin">Panel Admin</button>
+
+  <script>
+    // Visibilidad admin
+    const isAdmin = true; // Cambiar a false si no es administrador
+    if (!isAdmin) {
+      document.getElementById("btn-admin").style.display = "none";
+    }
+
+    // Lógica de click de ejemplo
+    document.getElementById("btn-register").onclick = () => alert("Registro presionado");
+    document.getElementById("btn-login").onclick = () => alert("Login presionado");
+    document.getElementById("btn-signal").onclick = () => alert("Señal presionada");
+    document.getElementById("btn-info").onclick = () => alert("Info señal presionada");
+    document.getElementById("btn-referral").onclick = () => alert("Referido presionado");
+    document.getElementById("btn-account").onclick = () => alert("Mi cuenta presionada");
+    document.getElementById("btn-plans").onclick = () => alert("Planes presionado");
+    document.getElementById("btn-support").onclick = () => alert("Soporte presionado");
+    document.getElementById("btn-admin").onclick = () => alert("Panel admin presionado");
+  </script>
+
+</body>
+</html>
