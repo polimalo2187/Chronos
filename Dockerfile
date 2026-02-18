@@ -9,7 +9,6 @@ RUN pip install --no-cache-dir --upgrade pip
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
-COPY . /app
+COPY app /app/app
 
-# debug: muestra estructura antes de arrancar
-CMD ["bash", "-lc", "ls -la && ls -la app && python -c \"import app.main\" && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["bash", "-lc", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
