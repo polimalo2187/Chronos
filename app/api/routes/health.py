@@ -3,11 +3,12 @@ from app.db.mongo import get_db
 
 router = APIRouter()
 
-# ✅ Importante: NO usar "/" aquí porque eso es de la WEB.
+# Endpoint informativo del API (NO interfiere con la portada web)
 @router.get("/api")
-async def api_root():
+async def root():
     return {"name": "Chronos API", "status": "ok"}
 
+# Healthcheck real usado por Railway / monitoreo
 @router.get("/health")
 async def health():
     db = get_db()
