@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <title>Chronos</title>
+  <link rel="stylesheet" href="/web/app.css"/>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="grid"></div>
+
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="brand-text">
+          <div class="brand-name">Chronos</div>
+          <div class="brand-sub">Signals Platform</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <button class="nav-item active" data-route="dashboard">
+          <span class="ico">▦</span><span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-route="signals">
+          <span class="ico">⚡</span><span>Señales</span>
+        </button>
+        <button class="nav-item" data-route="radar">
+          <span class="ico">◉</span><span>Radar</span>
+        </button>
+        <button class="nav-item" data-route="account">
+          <span class="ico">⚙</span><span>Cuenta</span>
+        </button>
+        <button class="nav-item" data-route="support">
+          <span class="ico">✉</span><span>Soporte</span>
+        </button>
+
+        <div class="nav-sep"></div>
+
+        <button class="nav-item" id="btnLogout" data-route="logout">
+          <span class="ico">↩</span><span>Salir</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="pill">Modo App</div>
+        <div class="muted">v0.1</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="burger" id="burger" aria-label="Menu">≡</button>
+
+        <div class="title">
+          <div class="h1" id="pageTitle">Dashboard</div>
+          <div class="h2" id="pageSub">Centro de control</div>
+        </div>
+
+        <div class="search">
+          <span class="sico">⌕</span>
+          <input id="searchInput" placeholder="Buscar..." />
+        </div>
+
+        <div class="status" id="statusPill">
+          <span class="dot" id="statusDot"></span>
+          <span id="statusText">Invitado</span>
+        </div>
+      </header>
+
+      <section class="content">
+        <!-- DASHBOARD -->
+        <div class="view" data-view="dashboard">
+          <div class="card">
+            <div class="card-title">Estado del mercado</div>
+            <div class="card-desc">Placeholder visual. Aquí irá tu <b>Estado del Mercado</b> (Premium).</div>
+            <div class="row">
+              <div class="kv">
+                <div class="k">Riesgo</div>
+                <div class="v">—</div>
+              </div>
+              <div class="chip">Sin datos aún</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Señales recientes</div>
+            <div class="card-desc">Placeholder. Aquí mostraremos las <b>3 mejores señales</b> por score (según plan).</div>
+            <div class="table">
+              <div class="tr head">
+                <div>Par</div><div>Dir</div><div>Score</div><div>Estado</div>
+              </div>
+              <div class="tr">
+                <div>—</div><div>—</div><div>—</div><div><span class="chip">Sin datos</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Radar de oportunidades</div>
+            <div class="card-desc">Placeholder. Ranking de oportunidades (Oro/Plata/Bronce).</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Alertas</div>
+            <div class="card-desc">Placeholder. Notificaciones en vivo (Telegram / push más adelante).</div>
+          </div>
+        </div>
+
+        <!-- SIGNALS -->
+        <div class="view hidden" data-view="signals">
+          <div class="card">
+            <div class="card-title">Señales</div>
+            <div class="card-desc">Esta vista mostrará señales filtradas por tu plan (Bronce/Plata/Oro).</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Top por score</div>
+            <div class="table">
+              <div class="tr head">
+                <div>Ranking</div><div>Par</div><div>Dir</div><div>Score</div>
+              </div>
+              <div class="tr">
+                <div>#1</div><div>—</div><div>—</div><div>—</div>
+              </div>
+              <div class="tr">
+                <div>#2</div><div>—</div><div>—</div><div>—</div>
+              </div>
+              <div class="tr">
+                <div>#3</div><div>—</div><div>—</div><div>—</div>
+              </div>
+            </div>
+            <div class="note">Nota: en el siguiente paso conectamos esto al scanner/DB.</div>
+          </div>
+          <div class="card warn hidden" id="signalsGate">
+            <div class="card-title">Acceso limitado</div>
+            <div class="card-desc">Tu plan actual limita las señales disponibles. Inicia sesión o activa Plus/Premium.</div>
+          </div>
+        </div>
+
+        <!-- RADAR -->
+        <div class="view hidden" data-view="radar">
+          <div class="card">
+            <div class="card-title">Radar</div>
+            <div class="card-desc">Aquí se listan oportunidades por score y volatilidad.</div>
+            <div class="row">
+              <div class="kv">
+                <div class="k">Estado</div>
+                <div class="v">—</div>
+              </div>
+              <div class="chip">Scanner aún no conectado</div>
+            </div>
+          </div>
+          <div class="card warn hidden" id="radarGate">
+            <div class="card-title">Acceso limitado</div>
+            <div class="card-desc">El Radar completo requiere Plus o Premium.</div>
+          </div>
+        </div>
+
+        <!-- ACCOUNT -->
+        <div class="view hidden" data-view="account">
+          <div class="card">
+            <div class="card-title">Perfil</div>
+            <div class="card-desc">Muestra email, plan, expiración y estado.</div>
+            <div class="row">
+              <button class="btn" id="btnRefreshMe">Actualizar</button>
+              <a class="btn ghost" href="/docs" target="_blank" rel="noreferrer">Abrir Swagger</a>
+            </div>
+            <pre class="code" id="meJson">{}</pre>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Plan</div>
+            <div class="card-desc">Free se activa automáticamente al registrarte (7 días). Plus/Premium se activan manual por el administrador (30 días).</div>
+            <div class="chip">Plus/Premium: 30 días</div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Login / Registro</div>
+            <div class="grid2">
+              <div>
+                <div class="label">Email</div>
+                <input class="input" id="email" placeholder="tucorreo@gmail.com"/>
+              </div>
+              <div>
+                <div class="label">Password</div>
+                <input class="input" id="password" type="password" placeholder="••••••••"/>
+              </div>
+            </div>
+            <div class="row">
+              <button class="btn" id="btnRegister">Registrar</button>
+              <button class="btn" id="btnLogin">Login</button>
+              <button class="btn ghost" id="btnCopyToken">Copiar token</button>
+            </div>
+            <div class="note" id="authMsg"></div>
+          </div>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="view hidden" data-view="support">
+          <div class="card">
+            <div class="card-title">Soporte</div>
+            <div class="card-desc">FAQ + enlace WhatsApp (si está configurado en settings).</div>
+            <div class="row">
+              <button class="btn" id="btnWhatsApp">WhatsApp</button>
+              <a class="btn ghost" href="/health" target="_blank" rel="noreferrer">Health</a>
+            </div>
+            <div class="note" id="supportMsg"></div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script src="/web/app.js"></script>
+</body>
+                                                                                                         </html>
