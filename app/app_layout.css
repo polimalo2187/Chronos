@@ -1,0 +1,238 @@
+/* Chronos — App Layout (no dependencies) */
+:root{
+  --bg0:#070A12;
+  --bg1:#0B1020;
+  --card:#0E1630CC;
+  --card2:#0E1630A8;
+  --stroke:#1E2A55;
+  --txt:#EAF0FF;
+  --muted:#A8B2D6;
+  --accent:#6CE5FF;
+  --accent2:#7C5CFF;
+  --good:#4CFFB5;
+  --warn:#FFCC66;
+  --bad:#FF5C7A;
+
+  --r:16px;
+  --shadow:0 20px 60px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--txt);
+  background:
+    radial-gradient(900px 600px at 20% 10%, rgba(124,92,255,.18), transparent 60%),
+    radial-gradient(900px 600px at 80% 20%, rgba(108,229,255,.14), transparent 55%),
+    radial-gradient(900px 700px at 60% 90%, rgba(76,255,181,.08), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+}
+
+.app-shell{
+  height:100%;
+  display:grid;
+  grid-template-columns: 280px 1fr;
+}
+
+.sidebar{
+  border-right:1px solid rgba(30,42,85,.65);
+  background: linear-gradient(180deg, rgba(14,22,48,.92), rgba(7,10,18,.80));
+  padding:18px 14px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  backdrop-filter: blur(10px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 12px;
+  border:1px solid rgba(30,42,85,.65);
+  border-radius: var(--r);
+  background: linear-gradient(180deg, rgba(14,22,48,.85), rgba(14,22,48,.35));
+  box-shadow: var(--shadow);
+}
+.brand-mark{
+  width:38px;height:38px;border-radius:12px;
+  display:grid;place-items:center;
+  background: radial-gradient(circle at 30% 20%, rgba(108,229,255,.30), rgba(124,92,255,.18));
+  border:1px solid rgba(108,229,255,.25);
+}
+.brand-name{font-weight:800; letter-spacing:.3px}
+.brand-sub{font-size:12px;color:var(--muted); margin-top:2px}
+
+.nav{display:flex; flex-direction:column; gap:6px}
+.nav-item{
+  width:100%;
+  display:flex; align-items:center; gap:10px;
+  padding:10px 12px;
+  border-radius: 14px;
+  border:1px solid transparent;
+  background: transparent;
+  color: var(--txt);
+  cursor:pointer;
+  text-align:left;
+  transition: transform .08s ease, background .18s ease, border-color .18s ease;
+}
+.nav-item:hover{
+  background: rgba(108,229,255,.07);
+  border-color: rgba(108,229,255,.18);
+}
+.nav-item:active{transform: translateY(1px)}
+.nav-item.is-active{
+  background: linear-gradient(90deg, rgba(108,229,255,.16), rgba(124,92,255,.10));
+  border-color: rgba(108,229,255,.22);
+}
+.nav-icon{width:22px; opacity:.9}
+.nav-label{font-weight:650; letter-spacing:.2px}
+.nav-divider{height:1px; background: rgba(30,42,85,.65); margin:10px 6px}
+.nav-danger:hover{background: rgba(255,92,122,.08); border-color: rgba(255,92,122,.25)}
+
+.sidebar-footer{
+  margin-top:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 10px;
+  border-radius: 14px;
+  border:1px solid rgba(30,42,85,.55);
+  background: rgba(14,22,48,.40);
+}
+.pill{
+  padding:6px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(108,229,255,.20);
+  background: rgba(108,229,255,.08);
+  color: var(--muted);
+  font-size:12px;
+}
+
+.main{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  padding:16px 18px;
+  border-bottom:1px solid rgba(30,42,85,.65);
+  background: rgba(7,10,18,.55);
+  backdrop-filter: blur(10px);
+}
+
+.topbar-left{display:flex; align-items:center; gap:12px; min-width:0}
+.icon-btn{
+  width:40px;height:40px;border-radius:14px;
+  border:1px solid rgba(30,42,85,.65);
+  background: rgba(14,22,48,.55);
+  color: var(--txt);
+  cursor:pointer;
+}
+.icon-btn:hover{border-color: rgba(108,229,255,.25)}
+.page-title{min-width:0}
+.h1{font-size:18px;font-weight:820; line-height:1.1}
+.muted{color:var(--muted); font-size:12px}
+
+.topbar-right{display:flex; align-items:center; gap:12px}
+.search{
+  display:flex; align-items:center; gap:8px;
+  padding:9px 12px;
+  border-radius: 14px;
+  border:1px solid rgba(30,42,85,.65);
+  background: rgba(14,22,48,.55);
+  min-width: 260px;
+}
+.search input{
+  width:100%;
+  background:transparent;
+  border:none;
+  outline:none;
+  color:var(--txt);
+}
+.search-ico{opacity:.85; color:var(--muted)}
+
+.user-chip{
+  display:flex; align-items:center; gap:8px;
+  padding:9px 12px;
+  border-radius: 14px;
+  border:1px solid rgba(30,42,85,.65);
+  background: rgba(14,22,48,.55);
+}
+.user-dot{width:8px;height:8px;border-radius:99px;background: var(--good); box-shadow: 0 0 10px rgba(76,255,181,.45)}
+.user-name{font-weight:650}
+
+.content{
+  padding:18px;
+  overflow:auto;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap:14px;
+}
+
+.card{
+  grid-column: span 6;
+  border-radius: var(--r);
+  border:1px solid rgba(30,42,85,.65);
+  background: linear-gradient(180deg, rgba(14,22,48,.80), rgba(14,22,48,.35));
+  box-shadow: var(--shadow);
+  padding:14px;
+}
+.card h3{margin:0 0 6px 0; font-size:14px}
+.card p{margin:0; color:var(--muted); font-size:12px; line-height:1.4}
+
+.kpi{
+  display:flex; align-items:baseline; justify-content:space-between;
+  gap:10px; margin-top:10px
+}
+.kpi .value{font-size:26px; font-weight:900}
+.kpi .tag{
+  font-size:12px; color: var(--muted);
+  border:1px solid rgba(30,42,85,.65);
+  background: rgba(14,22,48,.45);
+  padding:6px 10px; border-radius:999px;
+}
+
+.table{
+  width:100%;
+  border-collapse: collapse;
+  margin-top:8px;
+}
+.table th,.table td{
+  padding:10px 10px;
+  border-bottom:1px solid rgba(30,42,85,.55);
+  text-align:left;
+  font-size:12px;
+  color: var(--muted);
+}
+.table th{color: rgba(234,240,255,.90); font-weight:750}
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(30,42,85,.65);
+  background: rgba(14,22,48,.55);
+  color: rgba(234,240,255,.90);
+  font-size:12px;
+}
+.badge.good{border-color: rgba(76,255,181,.25)}
+.badge.warn{border-color: rgba(255,204,102,.25)}
+.badge.bad{border-color: rgba(255,92,122,.25)}
+
+@media (max-width: 980px){
+  .app-shell{grid-template-columns: 1fr}
+  .sidebar{position:fixed; inset:0 auto 0 0; width: 280px; transform: translateX(-105%); transition: transform .18s ease; z-index:20}
+  .sidebar.is-open{transform: translateX(0)}
+  .search{min-width: 180px}
+  .card{grid-column: span 12}
+}
