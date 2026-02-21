@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chronos</title>
+    <link rel="stylesheet" href="/static/app_layout.css" />
+  </head>
+  <body>
+    <!-- Cargamos el layout de app directamente (sin backend extra) -->
+    <script>
+      // Si quieres mantener index.html como entrypoint, inyectamos el layout
+      // (evita depender de Jinja2 o plantillas)
+      fetch("/static/app_layout.html")
+        .then(r => r.text())
+        .then(html => {
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(() => {
+          document.body.innerHTML = "<pre style='padding:16px;color:#fff'>No pude cargar app_layout.html</pre>";
+        });
+    </script>
+  </body>
+</html>
