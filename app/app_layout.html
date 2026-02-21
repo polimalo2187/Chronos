@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chronos</title>
+  <link rel="stylesheet" href="/static/app_layout.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">⏱</div>
+        <div class="brand-text">
+          <div class="brand-name">Chronos</div>
+          <div class="brand-sub">Signals Platform</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navegación">
+        <button class="nav-item is-active" data-route="dashboard">
+          <span class="nav-icon">▦</span><span class="nav-label">Dashboard</span>
+        </button>
+        <button class="nav-item" data-route="signals">
+          <span class="nav-icon">⚡</span><span class="nav-label">Señales</span>
+        </button>
+        <button class="nav-item" data-route="radar">
+          <span class="nav-icon">◉</span><span class="nav-label">Radar</span>
+        </button>
+        <button class="nav-item" data-route="account">
+          <span class="nav-icon">⛭</span><span class="nav-label">Cuenta</span>
+        </button>
+        <button class="nav-item" data-route="support">
+          <span class="nav-icon">✉</span><span class="nav-label">Soporte</span>
+        </button>
+
+        <div class="nav-divider"></div>
+
+        <button class="nav-item nav-danger" data-route="logout">
+          <span class="nav-icon">↩</span><span class="nav-label">Salir</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="pill">Modo App</div>
+        <div class="muted">v0.1</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn" id="btnSidebar" aria-label="Mostrar/Ocultar menú">≡</button>
+          <div class="page-title">
+            <div class="h1" id="pageTitle">Dashboard</div>
+            <div class="muted" id="pageSub">Centro de control</div>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search">
+            <span class="search-ico">⌕</span>
+            <input id="searchInput" placeholder="Buscar…" autocomplete="off" />
+          </div>
+
+          <div class="user-chip" id="userChip">
+            <span class="user-dot"></span>
+            <span class="user-name">Invitado</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="content" id="viewRoot" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <script src="/static/app_router.js"></script>
+</body>
+</html>
