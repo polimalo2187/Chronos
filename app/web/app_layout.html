@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chronos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/app_layout.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="app">
+    <header class="topbar">
+      <button class="iconbtn" id="btnMenu" aria-label="Abrir menú">☰</button>
+      <div class="topbar-left">
+        <div class="topbar-title">
+          <div class="h1" id="viewTitle">Dashboard</div>
+          <div class="h2" id="viewSubtitle">Centro de control</div>
+        </div>
+        <div class="search">
+          <span class="search-ic">⌕</span>
+          <input id="searchInput" placeholder="Buscar..." autocomplete="off" />
+        </div>
+      </div>
+      <div class="pill" id="pillStatus">
+        <span class="dot"></span>
+        <span id="pillText">Invitado</span>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo">⏱</div>
+        <div>
+          <div class="brand-name">Chronos</div>
+          <div class="brand-sub">Signals Platform</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item active" href="#/dashboard" data-view="dashboard">📊 <span>Dashboard</span></a>
+        <a class="nav-item" href="#/signals" data-view="signals">⚡ <span>Señales</span></a>
+        <a class="nav-item" href="#/radar" data-view="radar">◎ <span>Radar</span></a>
+        <a class="nav-item" href="#/account" data-view="account">⚙ <span>Cuenta</span></a>
+        <a class="nav-item" href="#/support" data-view="support">✉ <span>Soporte</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="ghost" id="btnExit">↩ Salir</button>
+        <div class="mini">
+          <span class="tag">Modo App</span>
+          <span class="ver">v0.1</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content" id="content">
+      <!-- Vistas -->
+      <section class="view" data-view="dashboard">
+        <div class="grid">
+          <div class="card">
+            <div class="card-h">Estado del mercado</div>
+            <div class="card-p">Placeholder visual. Aquí irá tu <b>Estado del Mercado</b> (Premium).</div>
+            <div class="row">
+              <div class="metric">
+                <div class="metric-k">Riesgo</div>
+                <div class="metric-v">—</div>
+              </div>
+              <div class="badge">Sin datos aún</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-h">Señales recientes</div>
+            <div class="card-p">Placeholder. Aquí mostraremos las <b>3 mejores señales</b> por score (según plan).</div>
+            <div class="table">
+              <div class="thead">
+                <span>Par</span><span>Dir</span><span>Score</span><span>Estado</span>
+              </div>
+              <div class="trow muted">
+                <span>—</span><span>—</span><span>—</span><span class="badge">Sin datos</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-h">Radar de oportunidades</div>
+            <div class="card-p">Placeholder. Ranking de oportunidades (Oro/Plata/Bronce).</div>
+          </div>
+
+          <div class="card">
+            <div class="card-h">Alertas</div>
+            <div class="card-p">Placeholder. Notificaciones en vivo (Telegram / push más adelante).</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view hidden" data-view="signals">
+        <div class="stack">
+          <div class="card">
+            <div class="card-h">Señales</div>
+            <div class="card-p">Esta vista mostrará señales filtradas por tu plan (Bronce/Plata/Oro).</div>
+          </div>
+          <div class="card">
+            <div class="card-h">Top por score</div>
+            <div class="table">
+              <div class="thead">
+                <span>Ranking</span><span>Par</span><span>Dir</span><span>Score</span><span>Nivel</span>
+              </div>
+              <div class="trow muted">
+                <span>#1</span><span>—</span><span>—</span><span>—</span><span class="badge">—</span>
+              </div>
+              <div class="trow muted">
+                <span>#2</span><span>—</span><span>—</span><span>—</span><span class="badge">—</span>
+              </div>
+              <div class="trow muted">
+                <span>#3</span><span>—</span><span>—</span><span>—</span><span class="badge">—</span>
+              </div>
+            </div>
+            <div class="hint">Nota: en el siguiente paso conectamos esto al scanner/DB.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view hidden" data-view="radar">
+        <div class="stack">
+          <div class="card">
+            <div class="card-h">Radar</div>
+            <div class="card-p">Aquí se listan oportunidades por score y volatilidad.</div>
+            <div class="row">
+              <div class="metric">
+                <div class="metric-k">Estado</div>
+                <div class="metric-v">—</div>
+              </div>
+              <div class="badge">Scanner aún no conectado</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view hidden" data-view="account">
+        <div class="stack">
+          <div class="card">
+            <div class="card-h">Perfil</div>
+            <div class="card-p">Placeholder. Mostrar email, plan, expiración y estado.</div>
+            <div class="row">
+              <button class="btn" id="btnRefreshMe">Actualizar</button>
+              <button class="btn2" id="btnOpenDocs">Abrir Swagger</button>
+            </div>
+            <pre class="json" id="meJson">{}</pre>
+          </div>
+          <div class="card">
+            <div class="card-h">Plan</div>
+            <div class="card-p">
+              Free se activa <b>automáticamente</b> al registrarte (7 días).
+              Plus/Premium se activan <b>manual</b> por el administrador (30 días).
+            </div>
+            <div class="badge">Plus/Premium: 30 días</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view hidden" data-view="support">
+        <div class="stack">
+          <div class="card">
+            <div class="card-h">Soporte</div>
+            <div class="card-p">FAQ + enlace WhatsApp (si está configurado en settings).</div>
+            <div class="row">
+              <a class="btn" id="btnWhats" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+              <a class="btn2" href="/health">Health</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="backdrop hidden" id="backdrop"></div>
+  <script src="/static/app_router.js"></script>
+</body>
+</html>
